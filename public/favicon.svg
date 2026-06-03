@@ -1,14 +1,24 @@
 <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
-  <!-- Linke Blatthälfte, leicht nach links aufgeklappt -->
-  <g transform="rotate(-8 16 29)">
-    <path d="M15 2.5 C6.5 8.5, 3.5 18, 15 29 Z" fill="#5BA85C"/>
-    <path d="M15 27 C9.5 20.5, 8.5 13, 13.5 6.5"
-          fill="none" stroke="#2F7D33" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
+  <!-- Linke Papierhälfte, leicht aufgeklappt; rechte Kante zerrissen -->
+  <g transform="rotate(-5 16 29)">
+    <path d="M4.5 4 L15 4 L14.2 7 L15.6 10 L14.2 13 L15.6 16 L14.2 19 L15.6 22 L14.2 25 L15 28 L4.5 28 Z"
+          fill="#FFFFFF" stroke="#C2410C" stroke-width="1.2" stroke-linejoin="round"/>
+    <g stroke="#F2B27A" stroke-width="1.1" stroke-linecap="round">
+      <line x1="7" y1="9"  x2="12" y2="9"/>
+      <line x1="7" y1="13" x2="12.2" y2="13"/>
+      <line x1="7" y1="17" x2="11.5" y2="17"/>
+      <line x1="7" y1="21" x2="12" y2="21"/>
+    </g>
   </g>
-  <!-- Rechte Blatthälfte, leicht nach rechts aufgeklappt -->
-  <g transform="rotate(8 16 29)">
-    <path d="M17 2.5 C25.5 8.5, 28.5 18, 17 29 Z" fill="#74C275"/>
-    <path d="M17 27 C22.5 20.5, 23.5 13, 18.5 6.5"
-          fill="none" stroke="#2F7D33" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
+  <!-- Rechte Papierhälfte, leicht aufgeklappt; linke Kante zerrissen -->
+  <g transform="rotate(5 16 29)">
+    <path d="M27.5 4 L17 4 L17.8 7 L16.4 10 L17.8 13 L16.4 16 L17.8 19 L16.4 22 L17.8 25 L17 28 L27.5 28 Z"
+          fill="#FFFFFF" stroke="#C2410C" stroke-width="1.2" stroke-linejoin="round"/>
+    <g stroke="#F2B27A" stroke-width="1.1" stroke-linecap="round">
+      <line x1="20" y1="9"  x2="25" y2="9"/>
+      <line x1="19.8" y1="13" x2="25" y2="13"/>
+      <line x1="20.5" y1="17" x2="25" y2="17"/>
+      <line x1="20" y1="21" x2="25" y2="21"/>
+    </g>
   </g>
 </svg>
