@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 32 32">
+  <!-- Linke Blatthälfte, leicht nach links aufgeklappt -->
+  <g transform="rotate(-8 16 29)">
+    <path d="M15 2.5 C6.5 8.5, 3.5 18, 15 29 Z" fill="#5BA85C"/>
+    <path d="M15 27 C9.5 20.5, 8.5 13, 13.5 6.5"
+          fill="none" stroke="#2F7D33" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
+  </g>
+  <!-- Rechte Blatthälfte, leicht nach rechts aufgeklappt -->
+  <g transform="rotate(8 16 29)">
+    <path d="M17 2.5 C25.5 8.5, 28.5 18, 17 29 Z" fill="#74C275"/>
+    <path d="M17 27 C22.5 20.5, 23.5 13, 18.5 6.5"
+          fill="none" stroke="#2F7D33" stroke-width="1.1" stroke-linecap="round" opacity="0.55"/>
+  </g>
+</svg>
