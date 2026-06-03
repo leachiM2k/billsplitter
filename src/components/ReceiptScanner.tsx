@@ -104,6 +104,7 @@ export function ReceiptScanner({ onResult }: Props) {
   const [dragging, setDragging] = useState(false);
   const [rawImage, setRawImage] = useState<string | null>(null);
   const [convertError, setConvertError] = useState<string | null>(null);
+  const [showAbout, setShowAbout] = useState(false);
 
   async function handleFile(file: File) {
     setConvertError(null);
@@ -147,7 +148,7 @@ export function ReceiptScanner({ onResult }: Props) {
   }
 
   return (
-    <div className="flex flex-col min-h-[calc(100svh-57px)]">
+    <div className="flex flex-col flex-1">
       {/* Hero section */}
       <div
         className="relative flex flex-col items-center justify-center px-6 py-14 text-center overflow-hidden"
@@ -191,17 +192,18 @@ export function ReceiptScanner({ onResult }: Props) {
             </p>
           </div>
 
-          <div
-            className="flex items-center gap-2 text-xs font-medium px-4 py-2 rounded-full border mt-1"
+          <button
+            onClick={() => setShowAbout(true)}
+            className="flex items-center gap-2 text-sm font-medium px-4 py-2 rounded-full border mt-1 transition-colors hover:bg-white"
             style={{
               color: '#92400E',
               borderColor: '#FCD9A8',
               background: '#FFF7ED',
             }}
           >
-            <span>🔒</span>
-            <span>100% privat · Kein Server · Keine Cloud</span>
-          </div>
+            <span>💡</span>
+            <span>Worum geht's?</span>
+          </button>
         </div>
       </div>
 
@@ -307,6 +309,70 @@ export function ReceiptScanner({ onResult }: Props) {
           </div>
         )}
       </div>
+
+      {/* "Worum geht's?" Info-Overlay */}
+      {showAbout && (
+        <div
+          className="fixed inset-0 z-50 flex items-end sm:items-center justify-center bg-black/50 backdrop-blur-sm"
+          onClick={() => setShowAbout(false)}
+          role="dialog"
+          aria-modal="true"
+          aria-label="Worum geht's?"
+        >
+          <div
+            className="w-full max-w-md max-h-[90svh] overflow-y-auto rounded-t-3xl sm:rounded-3xl p-6 shadow-2xl"
+            style={{ background: 'var(--color-bg)' }}
+            onClick={e => e.stopPropagation()}
+          >
+            <div className="flex items-start justify-between gap-4 mb-3">
+              <h2 className="font-display text-2xl font-bold" style={{ color: 'var(--color-primary)' }}>
+                Worum geht's? 💡
+              </h2>
+              <button
+                onClick={() => setShowAbout(false)}
+                className="shrink-0 w-9 h-9 flex items-center justify-center rounded-full transition-colors hover:bg-black/5"
+                style={{ color: 'var(--color-muted)' }}
+                aria-label="Schließen"
+              >
+                ✕
+              </button>
+            </div>
+
+            <p className="text-[15px] leading-relaxed font-medium" style={{ color: 'var(--color-text)' }}>
+              Gemeinsam essen gehen ist super – das Aufteilen der Rechnung danach eher nicht. 🙄
+            </p>
+            <p className="text-[15px] leading-relaxed mt-3" style={{ color: 'var(--color-text)' }}>
+              BillSplitter nimmt dir das ab: Du fotografierst die Rechnung, die App liest die Positionen
+              automatisch aus, du tippst nur noch an, wer was hatte – und am Ende weiß jeder ganz genau,
+              was er in den Topf wirft. Kein Kopfrechnen, kein „Ich hatte ja nur den Salat".
+            </p>
+
+            <div className="mt-4 rounded-2xl p-4" style={{ background: '#FFF7ED' }}>
+              <p className="text-sm font-semibold mb-2" style={{ color: '#92400E' }}>So einfach geht's:</p>
+              <ol className="text-sm space-y-1.5" style={{ color: 'var(--color-text)' }}>
+                <li>📷 Rechnung abfotografieren oder Bild hochladen</li>
+                <li>🧾 Erkannte Positionen kurz prüfen</li>
+                <li>👥 Personen eintragen & Sachen zuordnen</li>
+                <li>🎉 Trinkgeld drauf – fertig aufgeteilt</li>
+              </ol>
+            </div>
+
+            <p className="text-xs leading-relaxed mt-4 flex gap-2" style={{ color: 'var(--color-muted)' }}>
+              <span>🔒</span>
+              <span>Alles passiert direkt auf deinem Gerät. Kein Server, kein Upload, keine Cloud –
+              deine Rechnung bleibt bei dir.</span>
+            </p>
+
+            <button
+              onClick={() => setShowAbout(false)}
+              className="w-full mt-5 text-white font-semibold py-3 rounded-2xl transition-opacity hover:opacity-90 active:scale-[0.98]"
+              style={{ background: 'var(--color-primary)' }}
+            >
+              Los geht's →
+            </button>
+          </div>
+        </div>
+      )}
     </div>
   );
 }
